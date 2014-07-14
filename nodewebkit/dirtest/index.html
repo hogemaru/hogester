@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!!!!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using node.js 
+    <div id='out'></div>
+<script>
+var fs = require('fs');
+fs.readdir('.', function(err, files){
+    if (err) throw err;
+    var fileList = [];
+    files.filter(function(file){
+        return fs.statSync(file).isFile();
+    }).forEach(function (file) {
+        fileList.push(file);
+    });
+//    console.log(fileList);
+//	document.write(fileList);
+	var node = document.getElementById( "out" );
+	node.innerHTML = fileList;
+});
+</script>.
+  </body>
+</html>
