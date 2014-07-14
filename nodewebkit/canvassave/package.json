@@ -1,0 +1,17 @@
+{
+  "name": "helloworld",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+	"window": {
+    	"title" : "Sample-node-webkit-app",
+    	"width": 1000,
+    	"height": 700,
+    	"toolbar": false
+    },
+  "author": "",
+  "license": "BSD-2-Clause"
+}
