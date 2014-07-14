@@ -2,11 +2,36 @@
 <html>
   <head>
     <title>Hello World!!!!</title>
+    <style>
+    .button{
+    	background-color:lime;
+    	width:200px;
+    	height:28px;
+    	border-radius:8px;
+    	margin:2px;
+    	text-align:center;
+    	line-height:28px;
+    }
+    .button:hover{
+    	background-color:yellow;
+    	cursor:pointer;
+    }
+    </style>
   </head>
   <body>
     <h1>Hello World!</h1>
     We are using node.js 
     <div id='out'></div>
+    <div id='out2'></div>
+    <div id='out3'>
+    	<div class='button' id='button1'>1</div>
+    	<div class='button' id='button2'>2</div>
+    	<div class='button' id='button3'>3</div>
+    </div>
+<script
+ src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+ ></script>
+
 <script>
 var fs = require('fs');
 fs.readdir('.', function(err, files){
@@ -21,6 +46,13 @@ fs.readdir('.', function(err, files){
 //	document.write(fileList);
 	var node = document.getElementById( "out" );
 	node.innerHTML = fileList;
+});
+$(function(){
+	$("#out2").text("hoge----!" );
+	
+	$("#button1").click( function(){
+		$("#out2").text("button1!!!" );
+	});
 });
 </script>.
   </body>
