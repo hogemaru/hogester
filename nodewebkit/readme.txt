@@ -2,6 +2,7 @@ canvassave ... canvasをpngファイルに保存
 dirtest ... ディレクトリ内ファイル一覧
 filewrite ... テキストファイル出力
 helloworld ... helloworld
+doscmd ... dosコマンドをたたく
 
 実行環境
 node.js
