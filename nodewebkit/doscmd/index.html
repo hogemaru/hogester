@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <title>Hello World!!!!</title>
+    <style>
+    .button{
+    	background-color:lime;
+    	width:200px;
+    	height:28px;
+    	border-radius:8px;
+    	margin:2px;
+    	text-align:center;
+    	line-height:28px;
+    }
+    .button:hover{
+    	background-color:yellow;
+    	cursor:pointer;
+    }
+    #out4{
+    	position:absolute;
+    	border:1px solid black;
+    	width:400px;
+    	height:300px;
+    	left:220px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using node.js 
+    <div id='out4'>
+    </div>
+    <div id='out'></div>
+    <div id='out2'></div>
+    <div id='out3'>
+    	<div class='button' id='button1'>dirする</div>
+    	<div class='button' id='button2'>2</div>
+    	<div class='button' id='button3'>3</div>
+    </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="encoding.js"></script>
+<script>
+
+function cmd1(){
+	var exec = require('child_process').exec;
+
+	var child = exec('dir', {encoding:null},function(err, stdout, stderr) {
+	if (!err) {
+
+		var fs1 = require('fs');
+		fs1.writeFile('log_sjis.txt', stdout , function (err) {
+			console.log(err);
+		});
+
+		console.log( stdout );
+
+        var _array1 = Encoding.convert( stdout, "UNICODE","SJIS");
+        var out1       = Encoding.codeToString( _array1 ); // 配列から文字列変換する関数は用意されている
+
+		var fs2 = require('fs');
+		fs2.writeFile('log_utf8.txt', out1 , function (err) {
+	    	console.log(err);
+		});
+
+
+        var _array = Encoding.convert( stdout, "UNICODE","SJIS");
+        var out       = Encoding.codeToString( _array ); // 配列から文字列変換する関数は用意されている
+
+
+  
+  
+	  	$("#out4").text( out );
+  } else {
+    console.log(err);
+  }
+})
+
+}
+
+$(function(){
+	$("#button1").click( function(){
+		cmd1();
+	});
+	$("#button2").click( function(){
+	});
+	$("#button3").click( function(){
+	});
+});
+</script>.
+  </body>
+</html>
