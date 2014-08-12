@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>bookmarks</title>
+<!--    <link rel="stylesheet" href="style.css">-->
+<style>
+body{
+	background-color:black;
+	color:green;
+}
+</style>
+<script src="jquery.js"></script>
+<script>
+
+function appendBs(ar){
+	for( var i = 0; i < ar.length; i++ ){
+		var a = ar[i].split(",");
+		var $elem = $("<a>");
+		$elem.attr( "href", a[0] );
+		$elem.attr( "target", "_blank" );
+		$elem.text( "■"+a[1] );
+		$("body").append( $elem );
+	}
+}
+</script>
+<script src="default.js"></script>
+<script src="it.js"></script>
+  </head>
+  <body>
+  </body>
+</html>
